@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 10px;
+    align-items: center;
+}
+
+.logo{
+    width: 95px;
+    height: 95px;
+}
+
+/* .contenedor_lista{
+    display: flex;  
+} */
+
+.lista{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar h1{
+    font-family: roboto;
+    font-size: 2.5rem;
+}
+
+.navbar_li{
+    font-family:roboto,Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+.navbar_li a {
+    text-decoration: none;  
+}
+
+@media screen and (max-width: 500px) {
+    /* Ocultar la lista */
+    .lista {
+      display: none;
+    }
+  
+    /* Mostrar el botón para desplegar el menú */
+    .contenedor_lista {
+      display: block;
+      cursor: pointer;
+      
+    }
+  
+    /* Mostrar la lista cuando el menú desplegable está activo */
+    .contenedor_lista.active + .lista {
+      display: block;
+    }
+  }
+
