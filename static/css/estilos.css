@@ -81,6 +81,7 @@ label {
         padding: 0.5em; 
     }
 }
+/* Responsibe */
 @media screen and (max-width: 545px) {
     /* Ocultar la lista */
     .navbar h1{
@@ -105,6 +106,66 @@ label {
     #menu:checked ~ .navbar h1{
         font-size: 1.2rem;
     }
+}
+
+.buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    height: 200px;
+    background-image: url("../top-view-fresh-vegetables-red-tomatoes-cucumbers-squashes-with-greens-grey-surface.jpg") ;
+    background-size: cover;
+}
+.buscador input{
+    margin-left: 8px;
+    margin-right: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    width: 200px;
+    height: 2.5rem;
+    font-weight: 800;
+}
+
+.buscador #boton_busqueda{
+    margin-left: 25px;
+    margin-right: 8px;
+    padding: 5px 15px;
+    border-radius: 8px;
+    height: 2.5rem;
+    font-weight: 800;
+}
+
+.buscador #boton_busqueda:hover{
+    cursor: pointer;
+    /* background-color: white; */
+
+
+}
+.nosotros{
+    display: none;
+}
+
+.recetas{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    height: 85vw;
+    width: 65%;
+}
+.p_resultado{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 12px;
+
+}
+
+.footer{
+    height: 5vw;
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 
