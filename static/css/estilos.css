@@ -148,16 +148,28 @@ label {
 
 .recetas{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: auto;
     height: 85vw;
-    width: 65%;
+    width: 75%;
 }
 .p_resultado{
     font-size: 1.2rem;
     font-weight: 700;
-    margin-top: 12px;
+    margin: 12px 0px;
 
+}
+.contenedor1 {
+    margin: 15px 0px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+}
+
+.nombre{
+    font-size: 1.2rem;
 }
 
 .foto{
