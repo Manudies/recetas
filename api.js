@@ -6,7 +6,6 @@ async function recetas(busqueda){
     try {
         const response = await fetch(url.toString());
         const data = await response.json();
-        // console.log(data)
         return data;
     }
     catch (error) {

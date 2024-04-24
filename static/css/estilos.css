@@ -22,6 +22,7 @@ body{
     width: 90px;
     height: 90px;
     padding: 2.5px;
+    filter: invert(95%) sepia(17%) saturate(1073%) hue-rotate(4deg) brightness(85%) contrast(91%);
 }
 
 .lista{
@@ -73,7 +74,7 @@ label {
     label {
         display: none;
     }
-    ul{
+    .lista{
         display: flex;
         justify-content: space-between;
         padding: 2.5px;
@@ -106,6 +107,12 @@ label {
     #menu:checked ~ .navbar h1{
         font-size: 1.2rem;
     }
+    /* .logo{
+        width: 90px;
+        height: 90px;
+        padding: 2.5px;
+        filter: invert(95%) sepia(17%) saturate(1073%) hue-rotate(4deg) brightness(85%) contrast(91%);
+    } */
 }
 
 .buscador{
@@ -115,7 +122,7 @@ label {
     margin-top: 0px;
     height: 200px;
     background-image: url("../top-view-fresh-vegetables-red-tomatoes-cucumbers-squashes-with-greens-grey-surface.jpg") ;
-    background-size: cover;
+    background-size:cover;
 }
 .buscador input{
     margin-left: 8px;
@@ -160,12 +167,37 @@ label {
     margin: 12px 0px;
 
 }
+.contenedor_recetas{
+    padding-bottom: 50px;
+}
+
 .contenedor1 {
-    margin: 15px 0px;
+    margin: 15px 0px 0px 0px;
     padding: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
     background-color: rgb(221, 221, 221);
+}
+
+.contenedor2{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0px 0px 10px 10px;
+
+}
+.contenedor2 .macList{
+    padding: 10px;
+    display: block;
+}
+
+
+.contenedor2 ul li{
+    display: flex;
+    justify-content:center;
 }
 
 .nombre{
@@ -182,10 +214,21 @@ label {
 }
 
 .footer{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    background-color: rgb(221, 221, 221);;
     height: 5vw;
+    width: 100vw;
     margin-top: 25px;
-    margin-left: 50px;
-    margin-right: 50px;
+    padding: 0px 50px;
+}
+
+.footer ul{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
 }
 
 
