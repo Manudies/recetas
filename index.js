@@ -6,7 +6,7 @@ const boton = document.getElementById("boton_busqueda")
 boton.addEventListener("click", async () => {
     try {
         const resultadoAPI = await recetas(inputBusqueda.value.trim());
-        console.log(resultadoAPI)
+        // console.log(resultadoAPI)
         return AddRecetas(resultadoAPI.hits)
     } catch (error) {
         console.error(error);
@@ -23,7 +23,7 @@ function AddRecetas(recetas) {
     pResultado.setAttribute("class", "p_resultado");
     pResultado.setAttribute("id", "p_resultado");
     //Manejamos un input vacio
-    console.log(recetas.length)
+    // console.log(recetas.length)
     if (recetas.length > 0){
         pResultado.innerText = "Aquí tienes algunas sugerencias";
     }
@@ -133,44 +133,48 @@ function AddRecetas(recetas) {
         divIconos.appendChild(favoritos)
         divIconos.appendChild(masInfo)
         
+        console.log(receta)
+        // console.log(receta[index])
+
         //Ponemos un listener en mas info para redigir a la receta
         const masInfoBoton = document.getElementById("masInfo"+index)
         masInfoBoton.addEventListener("click", () => {
             window.open(receta.recipe.url, '_blank');
         });
-        ///////////////////////////////TODO: QUitar de favoritos/////////////////////////////////
-        // Función para manejar el clic en el ícono de corazón
-        let favoritosClick = false;
-        function handleFavoritoClick(recetafav) {
-        // Verificar si el evento ya está en favoritos
-        let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-        const index = favoritos.indexOf(recetafav);
-        // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
-        if (index === -1) {
-          favoritos.push(recetafav);
-        } else {
-          favoritos.splice(index, 1);
-        }
-        // Guardar los favoritos actualizados en el localStorage
-        localStorage.setItem('favoritos', JSON.stringify(favoritos));
-        }
 
-        // En el bloque donde creas el elemento favoritos y agregas el evento click:
-        favoritos.addEventListener("click", () => {
-        // Obtener el ID del evento asociado a este elemento favoritos
-        const recetafav = receta; // Reemplaza event.id con la propiedad adecuada que identifica el evento
+        ///////////////////////////////TODO: verificar si está en favoritos despues de recargar la página/////////////////////////////////
+// Función para manejar el clic en el ícono de corazón
+let favoritosClick = false;
+function handleFavoritoClick(recetafav) {
+    // Verificar si el evento ya está en favoritos
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const index = favoritos.findIndex(receta => receta.uri === recetafav.uri); // Buscar el índice por el URI
 
-        // Cambiar el ícono del corazón y manejar el estado de favoritos
-        if (favoritosClick === false) {
+    // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
+    if (index === -1) {
+        favoritos.push(recetafav);
+    } else {
+        favoritos.splice(index, 1);
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+}
+
+// En el bloque donde creas el elemento favoritos y agregas el evento click:
+favoritos.addEventListener("click", () => {
+    // Obtener el objeto de la receta asociado a este elemento favoritos
+    const recetafav = receta.recipe; // Se asume que receta es un objeto que contiene la receta completa
+
+    // Cambiar el ícono del corazón y manejar el estado de favoritos
+    if (favoritosClick === false) {
         favoritos.innerHTML = '<ion-icon name="heart"></ion-icon>';
         handleFavoritoClick(recetafav);
         favoritosClick = true;
-        } else {
+    } else {
         favoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
         handleFavoritoClick(recetafav);
         favoritosClick = false;
-      }
-    });
+    }
+});
     //////////////////////////////TODO:Solucionar problema de quitar de favoritos///////////////////////7
 
     });
