@@ -111,7 +111,7 @@ function AddRecetas(recetas) {
         //Mas información
         const masInfo = document.createElement("button");
         masInfo.setAttribute("class", "masInfo ");
-        masInfo.setAttribute("id", "masInfo");
+        masInfo.setAttribute("id", "masInfo"+index);
         masInfo.innerHTML = '<ion-icon name="arrow-forward-outline"></ion-icon>';
         
         //Metemos los elementos creados en el HTML
@@ -134,20 +134,20 @@ function AddRecetas(recetas) {
         divIconos.appendChild(masInfo)
         
         //Ponemos un listener en mas info para redigir a la receta
-        const masInfoBoton = document.getElementById("masInfo")
+        const masInfoBoton = document.getElementById("masInfo"+index)
         masInfoBoton.addEventListener("click", () => {
             window.open(receta.recipe.url, '_blank');
         });
         ///////////////////////////////TODO: QUitar de favoritos/////////////////////////////////
         // Función para manejar el clic en el ícono de corazón
         let favoritosClick = false;
-        function handleFavoriteClick(rectafav) {
+        function handleFavoritoClick(recetafav) {
         // Verificar si el evento ya está en favoritos
         let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-        const index = favoritos.indexOf(rectafav);
+        const index = favoritos.indexOf(recetafav);
         // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
         if (index === -1) {
-          favoritos.push(rectafav);
+          favoritos.push(recetafav);
         } else {
           favoritos.splice(index, 1);
         }
@@ -158,16 +158,16 @@ function AddRecetas(recetas) {
         // En el bloque donde creas el elemento favoritos y agregas el evento click:
         favoritos.addEventListener("click", () => {
         // Obtener el ID del evento asociado a este elemento favoritos
-        const rectafav = receta; // Reemplaza event.id con la propiedad adecuada que identifica el evento
+        const recetafav = receta; // Reemplaza event.id con la propiedad adecuada que identifica el evento
 
         // Cambiar el ícono del corazón y manejar el estado de favoritos
         if (favoritosClick === false) {
         favoritos.innerHTML = '<ion-icon name="heart"></ion-icon>';
-        handleFavoriteClick(rectafav);
+        handleFavoritoClick(recetafav);
         favoritosClick = true;
         } else {
         favoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
-        handleFavoriteClick(rectafav);
+        handleFavoritoClick(recetafav);
         favoritosClick = false;
       }
     });
