@@ -282,6 +282,56 @@ label {
     align-items: center;
 }
 
+.diviconos{
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.diviconos .huella{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 34%;
+}
+
+.botonFavoritos{
+    margin: 5px;
+    height: 33%;
+    width: 40%;
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+.botonFavoritosRed{
+    margin: 5px;
+    height: 33%;
+    width: 40%;
+    align-self: center;
+    font-size: 1.5rem;
+    color:red
+}
+
+.masInfo{
+    margin: 5px;
+    height: 33%;
+    width: 40%;
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .footer{
     display: flex;
     position: fixed;

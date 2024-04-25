@@ -110,7 +110,7 @@ function AddRecetas(recetas) {
         botonFavoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
         //Mas información
         const masInfo = document.createElement("button");
-        masInfo.setAttribute("class", "masInfo ");
+        masInfo.setAttribute("class", "masInfo");
         masInfo.setAttribute("id", "masInfo"+index);
         masInfo.innerHTML = '<ion-icon name="arrow-forward-outline"></ion-icon>';
         
@@ -165,10 +165,12 @@ function AddRecetas(recetas) {
             // Cambiar el ícono del corazón y manejar el estado de favoritos
             if (favoritosClick === false) {
                 botonFavoritos.innerHTML = '<ion-icon name="heart"></ion-icon>';
+                botonFavoritos.setAttribute("class","botonFavoritosRed")
                 handleFavoritoClick(recetafav);
                 favoritosClick = true;
             } else {
                 botonFavoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+                botonFavoritos.setAttribute("class","botonFavoritos")
                 handleFavoritoClick(recetafav);
                 favoritosClick = false;
             }
