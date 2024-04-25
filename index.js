@@ -105,9 +105,9 @@ function AddRecetas(recetas) {
         huella.setAttribute("class", "huella")
         huella.innerText = "Etiqueta CO2: " + receta.recipe.co2EmissionsClass
         //Favoritos
-        const favoritos = document.createElement("button");
-        favoritos.setAttribute("class", "favoritos ");
-        favoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+        const botonFavoritos = document.createElement("button");
+        botonFavoritos.setAttribute("class", "botonFavoritos ");
+        botonFavoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
         //Mas información
         const masInfo = document.createElement("button");
         masInfo.setAttribute("class", "masInfo ");
@@ -130,7 +130,7 @@ function AddRecetas(recetas) {
         divAlergias.appendChild(alergias);
         contenedor2.appendChild(divIconos);
         divIconos.appendChild(huella);
-        divIconos.appendChild(favoritos)
+        divIconos.appendChild(botonFavoritos)
         divIconos.appendChild(masInfo)
         
         console.log(receta)
@@ -143,45 +143,65 @@ function AddRecetas(recetas) {
         });
 
         ///////////////////////////////TODO: verificar si está en favoritos despues de recargar la página/////////////////////////////////
-// Función para manejar el clic en el ícono de corazón
-let favoritosClick = false;
-function handleFavoritoClick(recetafav) {
-    // Verificar si el evento ya está en favoritos
-    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const index = favoritos.findIndex(receta => receta.uri === recetafav.uri); // Buscar el índice por el URI
+        // Función para manejar el clic en el ícono de corazón
+        let favoritosClick = false;
+        function handleFavoritoClick(recetafav) {
+            // Verificar si el evento ya está en favoritos
+            let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            const index = favoritos.findIndex(receta => receta.uri === recetafav.uri); // Buscar el índice por el URI
 
-    // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
-    if (index === -1) {
-        favoritos.push(recetafav);
-    } else {
-        favoritos.splice(index, 1);
-    }
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-}
+            // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
+            if (index === -1) {
+                favoritos.push(recetafav);
+            } else {
+                favoritos.splice(index, 1);
+            }
+            localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        }
 
-// En el bloque donde creas el elemento favoritos y agregas el evento click:
-favoritos.addEventListener("click", () => {
-    // Obtener el objeto de la receta asociado a este elemento favoritos
-    const recetafav = receta.recipe; // Se asume que receta es un objeto que contiene la receta completa
-
-    // Cambiar el ícono del corazón y manejar el estado de favoritos
-    if (favoritosClick === false) {
-        favoritos.innerHTML = '<ion-icon name="heart"></ion-icon>';
-        handleFavoritoClick(recetafav);
-        favoritosClick = true;
-    } else {
-        favoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
-        handleFavoritoClick(recetafav);
-        favoritosClick = false;
-    }
-});
-    //////////////////////////////TODO:Solucionar problema de quitar de favoritos///////////////////////7
-
+        // Listener de favoritos
+        botonFavoritos.addEventListener("click", () => {
+            const recetafav = receta.recipe; 
+            // Cambiar el ícono del corazón y manejar el estado de favoritos
+            if (favoritosClick === false) {
+                botonFavoritos.innerHTML = '<ion-icon name="heart"></ion-icon>';
+                handleFavoritoClick(recetafav);
+                favoritosClick = true;
+            } else {
+                botonFavoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+                handleFavoritoClick(recetafav);
+                favoritosClick = false;
+            }
+        });
     });
     } else {
         console.error("La variable 'recetas' no es un array.");
     }
 }
 
+// El boton NAVBARfavoritos te lleva a la página de favoritos TODO: y te muestra los favoritos
+const navbarFavoritos = document.querySelector(".navbar_favoritos")
+navbarFavoritos.addEventListener("click", () => {
+    window.open("../templates/favoritos.html", '_self');
+});
 
-  
+let favoritos = JSON.parse(localStorage.getItem('favoritos'));
+if (favoritos && favoritos.length > 0) {
+    favoritos.forEach(receta => {
+    console.log("Título de la receta:", receta.label);
+    });
+} else {
+    console.log("No hay recetas en la lista de favoritos.");
+    }
+
+// El boton NAVBARbuscador te lleva a la página de buscador
+const navbarbuscador = document.querySelector(".navbar_buscador")
+navbarbuscador.addEventListener("click", () => {
+    window.open("../templates/buscador.html", '_self');
+});
+
+// El boton NAVBARnosotros te lleva a la página de nosotros
+const navbarNosotros = document.querySelector(".navbar_nosotros")
+navbarNosotros.addEventListener("click", () => {
+    window.open("../templates/index.html", '_self');
+});

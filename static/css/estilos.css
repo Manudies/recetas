@@ -2,7 +2,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 body{
@@ -25,10 +24,25 @@ body{
     filter: invert(95%) sepia(17%) saturate(1073%) hue-rotate(4deg) brightness(85%) contrast(91%);
 }
 
+.logo_red{
+    width: 90px;
+    height: 90px;
+    padding: 2.5px;
+    filter: invert(49%) sepia(73%) saturate(6100%) hue-rotate(336deg) brightness(104%) contrast(103%);}
+
+.logo_blue{
+    width: 90px;
+    height: 90px;
+    padding: 2.5px;
+    filter: invert(37%) sepia(100%) saturate(992%) hue-rotate(151deg) brightness(95%) contrast(102%);
+}
+
 .lista{
     display: flex;
     justify-content: space-between;
     padding: 2.5px;
+    list-style: none;
+    margin-left: 10px;
 }
 
 .navbar h1{
@@ -42,6 +56,7 @@ body{
     padding: 0.5em;
     color: black;
     font-weight: 800;
+    cursor: pointer;
 }
 
 label {
@@ -62,11 +77,6 @@ label {
 /* eliminamos el checkbox */
 .checkbox {
    display: none;
-}
-
-.lista{
-    display: flex;
-    margin-left: 10px;
 }
 
 /* Hacemos la app responsibe */
@@ -146,9 +156,41 @@ label {
 .buscador #boton_busqueda:hover{
     cursor: pointer;
     background-color: white;
-
 }
+
 .nosotros{
+    font-size: 1.2rem;
+    display: block;
+    margin: auto;
+    width: 85vw;
+    height: 100vw;
+}
+
+.nosotros h1{
+    padding: 15px;
+}
+
+.contenedor_nosotros_parrafos{
+    padding: 15px;
+    text-align: justify;
+}
+
+.contenedor_nosotros_lista{
+    padding: 15px;
+    text-align: justify;
+}
+
+.contenedor_nosotros_lista p{
+    padding-bottom: 15px;
+    
+}
+
+.nosotros_lista{
+    list-style-type: decimal;
+    padding-left: 30px;
+}
+
+.none{
     display: none;
 }
 
