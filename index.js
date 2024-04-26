@@ -76,17 +76,17 @@ function AddRecetas(recetas) {
         macList.setAttribute("class", "macList");
         macList.setAttribute("id", "macList" + index);
         // macList.innerText = "% diaria recomendada"
-        //Grasa diaría recomenda %
+        //Grasa total
         const fat = document.createElement("li");
         fat.setAttribute("class", "fat");
         fat.setAttribute("id", "fat" + index);
         fat.innerText = receta.recipe.totalNutrients.FAT.label + " " + (Number(receta.recipe.totalNutrients.FAT.quantity).toFixed(2) + receta.recipe.totalNutrients.FAT.unit)
-        //Carbohidratos diario recomendo %
+        //Carbohidratos total
         const carbo = document.createElement("li");
         carbo.setAttribute("class", "carbo");
         carbo.setAttribute("id", "carbo" + index);
         carbo.innerText = receta.recipe.totalNutrients.CHOCDF.label + " " + (Number(receta.recipe.totalNutrients.CHOCDF.quantity).toFixed(2) + receta.recipe.totalNutrients.CHOCDF.unit)
-        //Carbohidratos diario recomendo %
+        //Carbohidratos total
         const prote = document.createElement("li");
         prote.setAttribute("class", "prote");
         prote.setAttribute("id", "prote" + index);
@@ -102,7 +102,17 @@ function AddRecetas(recetas) {
         const divIconos = document.createElement("div");
         divIconos.setAttribute("class", "diviconos");
         const huella = document.createElement("p");
-        huella.setAttribute("class", "huella")
+        huella.setAttribute("class", "huella");
+        //Metemos un color según la letra
+        if (receta.recipe.co2EmissionsClass === "A"|| receta.recipe.co2EmissionsClass === "B"){
+            huella.setAttribute("class", "punto_verde")
+        }
+        if (receta.recipe.co2EmissionsClass === "C"|| receta.recipe.co2EmissionsClass === "D"){
+            huella.setAttribute("class", "punto_amarillo")
+        }
+        if (receta.recipe.co2EmissionsClass === "E"|| receta.recipe.co2EmissionsClass === "F"|| receta.recipe.co2EmissionsClass === "G"){
+            huella.setAttribute("class", "punto_rojo")
+        }
         huella.innerText = "Etiqueta CO2: " + receta.recipe.co2EmissionsClass
         //Favoritos
         const botonFavoritos = document.createElement("button");

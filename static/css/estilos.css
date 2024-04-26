@@ -294,26 +294,73 @@ label {
     text-align: center;
     width: 100%;
     height: 34%;
+    padding: 5px;
+}
+
+.contenedor_span_huella{
+    display: flex;
+    height: 33%;
+    padding: 5px;
+}
+
+.punto_verde{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 34%;
+    padding: 5px;
+    color: rgb(11, 177, 11);
+}
+
+.punto_amarillo{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 34%;
+    padding: 5px;
+    color: rgb(231, 228, 14);
+}
+
+.punto_rojo{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 34%;
+    padding: 5px;
+    color: rgb(240, 2, 2);
 }
 
 .botonFavoritos{
-    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
     height: 33%;
     width: 40%;
     align-self: center;
     font-size: 1.5rem;
+    border-radius: 5px;
+    align-content: center;
+    justify-content: center;
 }
 
 .botonFavoritosRed{
-    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
     height: 33%;
     width: 40%;
     align-self: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    align-content: center;
+    justify-content: center;
     color:red
 }
 
 .masInfo{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    align-content: center;
+    justify-content: center;
     margin: 5px;
     height: 33%;
     width: 40%;
