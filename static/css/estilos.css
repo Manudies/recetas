@@ -202,12 +202,30 @@ label {
     height: 85vw;
     width: 75%;
 }
+
+.recetas_fav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    height: 85vw;
+    width: 75%;
+}
+
 .p_resultado{
     font-size: 1.2rem;
     font-weight: 700;
     margin: 12px 0px;
     
 }
+
+.p_resultado{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 12px 0px;
+    
+}
+
 .contenedor_recetas{
     padding-bottom: 50px;
 }
@@ -331,36 +349,23 @@ label {
 }
 
 .botonFavoritos{
-    display: flex;
-    flex-wrap: wrap;
+    margin: 5px;
     height: 33%;
     width: 40%;
     align-self: center;
     font-size: 1.5rem;
-    border-radius: 5px;
-    align-content: center;
-    justify-content: center;
 }
 
 .botonFavoritosRed{
-    display: flex;
-    flex-wrap: wrap;
+    margin: 5px;
     height: 33%;
     width: 40%;
     align-self: center;
-    font-size: 1.8rem;
-    border-radius: 5px;
-    align-content: center;
-    justify-content: center;
+    font-size: 1.5rem;
     color:red
 }
 
 .masInfo{
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 5px;
-    align-content: center;
-    justify-content: center;
     margin: 5px;
     height: 33%;
     width: 40%;

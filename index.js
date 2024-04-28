@@ -142,9 +142,6 @@ function AddRecetas(recetas) {
         divIconos.appendChild(huella);
         divIconos.appendChild(botonFavoritos)
         divIconos.appendChild(masInfo)
-        
-        console.log(receta)
-        // console.log(receta[index])
 
         //Ponemos un listener en mas info para redigir a la receta
         const masInfoBoton = document.getElementById("masInfo"+index)
@@ -152,7 +149,6 @@ function AddRecetas(recetas) {
             window.open(receta.recipe.url, '_blank');
         });
 
-        ///////////////////////////////TODO: verificar si está en favoritos despues de recargar la página/////////////////////////////////
         // Función para manejar el clic en el ícono de corazón
         let favoritosClick = false;
         function handleFavoritoClick(recetafav) {
@@ -199,12 +195,122 @@ navbarFavoritos.addEventListener("click", () => {
 
 let favoritos = JSON.parse(localStorage.getItem('favoritos'));
 if (favoritos && favoritos.length > 0) {
-    favoritos.forEach(receta => {
-    console.log("Título de la receta:", receta.label);
-    });
-} else {
-    console.log("No hay recetas en la lista de favoritos.");
-    }
+    const secionRecetasFav = document.getElementById("recetas_fav");
+    //Creamos contenedor global de recetas Fav
+    const contenedorRecetasFav = document.createElement("div");
+    contenedorRecetasFav.setAttribute("class", "contenedor_recetas_fav");
+    contenedorRecetasFav.setAttribute("id", "contenedor_recetas");
+    
+    //Agregamos los elementos creados
+    secionRecetasFav.appendChild(contenedorRecetasFav);
+    //Construimos las recetas favoritas
+    favoritos.forEach((receta, index) => {
+                //Ficha de individual de cada receta
+                const contenedorReceta = document.createElement("div");
+                contenedorReceta.setAttribute("class", "contenedorReceta");
+                contenedorReceta.setAttribute("id", "contenedorReceta" + index);
+                //Creamos contendor 1
+                const contenedor1 = document.createElement("div");
+                contenedor1.setAttribute("class", "contenedor1");
+                contenedor1.setAttribute("id", "contenedor1");
+                //Creamos contendor 1_1
+                const contenedor1_1 = document.createElement("div");
+                contenedor1_1.setAttribute("class", "contenedor1_1");
+                contenedor1_1.setAttribute("id", "contenedor1_1");
+                //Creamos contendor 2
+                const contenedor2 = document.createElement("div");
+                contenedor2.setAttribute("class", "contenedor2");
+                contenedor2.setAttribute("id", "contenedor2");
+                //Titulo
+                const nombre = document.createElement("h1");
+                nombre.setAttribute("class", "nombre");
+                nombre.setAttribute("id", "nombre" + index);
+                nombre.innerText = receta.label;
+                //Imagen 
+                const foto = document.createElement("img");
+                foto.setAttribute("class", "foto");
+                foto.setAttribute("id", "foto" + index);
+                foto.setAttribute("src", receta.image)
+                //Etiquetas de salud
+                const salud = document.createElement("p");
+                salud.setAttribute("class", "salud");
+                salud.setAttribute("id", "salud" + index);
+                salud.innerText = receta.healthLabels;
+                //Lista de Macronutrientes
+                const macList = document.createElement("ul")
+                macList.setAttribute("class", "macList");
+                macList.setAttribute("id", "macList" + index);
+                // macList.innerText = "% diaria recomendada"
+                //Grasa total
+                const fat = document.createElement("li");
+                fat.setAttribute("class", "fat");
+                fat.setAttribute("id", "fat" + index);
+                fat.innerText = receta.totalNutrients.FAT.label + " " + (Number(receta.totalNutrients.FAT.quantity).toFixed(2) + receta.totalNutrients.FAT.unit)
+                //Carbohidratos total
+                const carbo = document.createElement("li");
+                carbo.setAttribute("class", "carbo");
+                carbo.setAttribute("id", "carbo" + index);
+                carbo.innerText = receta.totalNutrients.CHOCDF.label + " " + (Number(receta.totalNutrients.CHOCDF.quantity).toFixed(2) + receta.totalNutrients.CHOCDF.unit)
+                //Carbohidratos total
+                const prote = document.createElement("li");
+                prote.setAttribute("class", "prote");
+                prote.setAttribute("id", "prote" + index);
+                prote.innerText = receta.totalNutrients.PROCNT.label + " " + (Number(receta.totalNutrients.PROCNT.quantity).toFixed(2) + receta.totalNutrients.PROCNT.unit)
+                //Alergias
+                const divAlergias = document.createElement("div");
+                divAlergias.setAttribute("class", "divalergias");
+                const alergias = document.createElement("p");
+                alergias.setAttribute("class", "alergias");
+                alergias.setAttribute("id", "alergias" + index);
+                alergias.innerText = "Alergias: \n" + receta.cautions
+                //Huella de C02  
+                const divIconos = document.createElement("div");
+                divIconos.setAttribute("class", "diviconos");
+                const huella = document.createElement("p");
+                huella.setAttribute("class", "huella");
+                //Metemos un color según la letra
+                if (receta.co2EmissionsClass === "A"|| receta.co2EmissionsClass === "B"){
+                    huella.setAttribute("class", "punto_verde")
+                }
+                if (receta.co2EmissionsClass === "C"|| receta.co2EmissionsClass === "D"){
+                    huella.setAttribute("class", "punto_amarillo")
+                }
+                if (receta.co2EmissionsClass === "E"|| receta.co2EmissionsClass === "F"|| receta.co2EmissionsClass === "G"){
+                    huella.setAttribute("class", "punto_rojo")
+                }
+                huella.innerText = "Etiqueta CO2: " + receta.co2EmissionsClass
+                //Favoritos
+                const botonFavoritos = document.createElement("button");
+                botonFavoritos.setAttribute("class", "botonFavoritos ");
+                botonFavoritos.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+                //Mas información
+                const masInfo = document.createElement("button");
+                masInfo.setAttribute("class", "masInfo");
+                masInfo.setAttribute("id", "masInfo"+index);
+                masInfo.innerHTML = '<ion-icon name="arrow-forward-outline"></ion-icon>';
+                
+                //Metemos los elementos creados en el HTML
+                contenedorRecetasFav.appendChild(contenedorReceta);
+                contenedorReceta.appendChild(contenedor1);
+                contenedorReceta.appendChild(contenedor2);
+                contenedor1.appendChild(nombre);
+                contenedor1.appendChild(contenedor1_1);
+                contenedor1_1.appendChild(foto);
+                contenedor1_1.appendChild(salud);
+                contenedor2.appendChild(macList);
+                macList.appendChild(fat);
+                macList.appendChild(carbo);
+                macList.appendChild(prote);
+                contenedor2.appendChild(divAlergias);
+                divAlergias.appendChild(alergias);
+                contenedor2.appendChild(divIconos);
+                divIconos.appendChild(huella);
+                divIconos.appendChild(botonFavoritos)
+                divIconos.appendChild(masInfo)
+        });
+    } else {
+        console.log("No hay recetas en la lista de favoritos.");
+        }
 
 // El boton NAVBARbuscador te lleva a la página de buscador
 const navbarbuscador = document.querySelector(".navbar_buscador")
