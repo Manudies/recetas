@@ -373,31 +373,22 @@ label {
     font-size: 1.5rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .footer{
     display: flex;
     position: fixed;
     bottom: 0;
     z-index: 5;
     background-color: rgb(221, 221, 221);;
-    height: 5vw;
+    height: 40px;
     width: 100vw;
     margin-top: 25px;
     padding: 0px 50px;
 }
 
 .footer ul{
+    padding: 10px;
     width: 100vw;
+    list-style: none;
     display: flex;
     justify-content: space-around;
 }
