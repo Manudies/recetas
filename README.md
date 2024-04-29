@@ -16,10 +16,13 @@ El Buscador de Recetas Gastrum Mundus es una aplicación web que permite a los u
 
 ## Instalación
 1. Clona el repositorio de GitHub: `https://github.com/Manudies/recetas`
-2. Abre el archivo index.html en tu navegador.
-3. En la página principal encontrarás una descripción de nuestra historia.
-4. En la sección Buscador podrás hacer busquedas según tus ingredientes favoritos. 
-4. Y en la sección de favoritos podrás ver tus recetas guardadas
+2. Crear el archivo apikey.js en la carpeta recetas
+3. Crear las constantes myID y myKey.
+4. Tienes que intruducir tu ID de usuario y tu APIKEY de la página de EDAMAM
+5. Abre el archivo index.html en tu navegador.
+6. En la página principal encontrarás una descripción de nuestra historia.
+7. En la sección Buscador podrás hacer busquedas según tus ingredientes favoritos. 
+8. Y en la sección de favoritos podrás ver tus recetas guardadas
 
 
 ## Licencia
