@@ -321,5 +321,5 @@ navbarbuscador.addEventListener("click", () => {
 // El boton NAVBARnosotros te lleva a la página de nosotros
 const navbarNosotros = document.querySelector(".navbar_nosotros")
 navbarNosotros.addEventListener("click", () => {
-    window.open("../templates/index.html", '_self');
+    window.open("../index.html", '_self');
 });
