@@ -4,11 +4,11 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=<dominio>
-      - LETSENCRYPT_HOST=<dominio>
-      - LETSENCRYPT_EMAIL=<email>
+      - VIRTUAL_HOST=recetas.manudies.com
+      - LETSENCRYPT_HOST=recetas.manudies.com
+      - LETSENCRYPT_EMAIL=manudies@gmail.com
     volumes:
-      - <dirección_completa_al_proyecto>:/usr/share/nginx/html:ro
+      - ./:/usr/share/nginx/html:ro
       ##En caso de que tenga rutass variables o se quiera configurar nginx##
       #- ../nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     networks:

@@ -313,13 +313,13 @@ if (favoritos && favoritos.length > 0) {
         }
 
 // El boton NAVBARbuscador te lleva a la página de buscador
-const navbarbuscador = document.querySelector(".navbar_buscador")
-navbarbuscador.addEventListener("click", () => {
-    window.open("../templates/buscador.html", '_self');
-});
+// const navbarbuscador = document.querySelector(".navbar_buscador")
+// navbarbuscador.addEventListener("click", () => {
+//     window.open("../templates/buscador.html", '_self');
+// });
 
 // El boton NAVBARnosotros te lleva a la página de nosotros
-const navbarNosotros = document.querySelector(".navbar_nosotros")
-navbarNosotros.addEventListener("click", () => {
-    window.open("../index.html", '_self');
-});
+// const navbarNosotros = document.querySelector(".navbar_nosotros")
+// navbarNosotros.addEventListener("click", () => {
+//     window.open("../index.html", '_self');
+// });
